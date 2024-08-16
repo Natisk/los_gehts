@@ -21,7 +21,7 @@ class ChatsController < ApplicationController
 
   # POST /chats or /chats.json
   def create
-    @chat = Chat.new(chat_params)
+    @chat = current_user.chats.build(chat_params)
 
     respond_to do |format|
       if @chat.save
