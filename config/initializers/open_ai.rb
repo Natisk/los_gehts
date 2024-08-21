@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-OpenAi.configure do |config|
-  config.access_token = "qwer"
+OpenAI.configure do |config|
+  config.access_token = ENV.fetch("OPEN_AI_API_SECRET_KEY")
   config.request_timeout = 240
 end
