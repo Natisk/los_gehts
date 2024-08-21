@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class ChatsController < ApplicationController
+  layout "chats"
+
   before_action :set_chat, only: %i[ show edit update destroy ]
 
   # GET /chats or /chats.json
