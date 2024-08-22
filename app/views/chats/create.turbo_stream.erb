@@ -1,1 +1,1 @@
-<%= turbo_stream.prepend "user-chats", partial: "chats/chat_list", locals: { chat: @chat } %>
+<%= turbo_stream.append "user-chats", partial: "chats/chat_list", locals: { chat: @chat } %>
