@@ -19,25 +19,25 @@
   </head>
 
   <body>
-    <div class="container-fluid d-flex vh-100">
-      <div class="row align-self-strech w-100">
-        <div class="col-md-2 mx-auto bg-dark text-white">
-          <div class="w-100 text-align-center d-flex justify-content-center mt-3">
-            <%= form_with(model: Chat.new) do |form| %>
-              <%= form.hidden_field :history, value: "" %>
-              <%= form.submit("+ New chat", class:"mt-3 mt-3-dark border-light") if current_user %>
-            <% end %>
-          </div>
-          <div class="mt-3">
-            <h4>Today:</h4>
-            <turbo-frame id="user-chats">
-              <%= render partial: "chats/chat_list", collection: current_user.chats, as: :chat %>
-            </turbo-frame>
-          </div>
+    <div class="flex h-100">
+      <div class="w-1/4 bg-gray-600 text-white p-4">
+        <div class="">
+          <%= form_with(model: Chat.new) do |form| %>
+            <%= form.hidden_field :history, value: "" %>
+            <%= form.submit("+ New chat", 
+                            class:"bg-blue-500 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 
+                                   rounded focus:outline-none focus-shadow:outline-none") if current_user %>
+          <% end %>
         </div>
-        <div class="col-10">  
-          <%= yield %>
+        <div class="mt-3">
+          <h4 class="font-bold">Today:</h4>
+          <turbo-frame id="user-chats">
+            <%= render partial: "chats/chat_list", collection: current_user.chats, as: :chat %>
+          </turbo-frame>
         </div>
+      </div>
+      <div class="w-3/4 bg-gray-400 text-white p-4">
+        <%= yield %>
       </div>
     </div>
   </body>
