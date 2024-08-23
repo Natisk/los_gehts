@@ -14,5 +14,14 @@
         <% end %>
       <% end %>
     </div>
+    <div class="ask_gpt">
+      <%= form_with(model: @chat) do |form| %>
+        <div class="mb-3">
+          <%= form.text_field :message, placeholder: "Write a question", class: "text-gray-800 p-3 w-80" %>
+          <%= form.submit "Ask", 
+                          class: "ml-2 mb-2 rounded-lg py-3 px-5 bg-blue-100 text-gray-700 inline-block font-medium" %>
+        </div>
+      <% end %>
+    </div>
   </div>  
 </turbo_frame>

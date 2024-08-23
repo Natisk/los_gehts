@@ -40,8 +40,6 @@ class ChatsController < ApplicationController
         format.turbo_stream
       end
     end
-
-    redirect chats_index_path
   end
 
   # PATCH/PUT /chats/1 or /chats/1.json

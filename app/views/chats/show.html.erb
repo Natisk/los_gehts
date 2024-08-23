@@ -8,17 +8,5 @@
 
     <%= render @chat %>
 
-    <%= link_to "Edit this chat", 
-                edit_chat_path(@chat), 
-                class: "ml-2 mb-2 rounded-lg py-3 px-5 bg-blue-100 text-gray-700 inline-block font-medium" %>
-    <%= link_to "Back to chats", 
-                chats_path, 
-                class: "ml-2 mb-2 rounded-lg py-3 px-5 bg-blue-100 text-gray-700 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this chat", 
-                    @chat, 
-                    method: :delete, 
-                    class: "ml-2 mb-2 rounded-lg py-3 px-5 bg-blue-100 text-gray-700 inline-block font-medium" %>
-    </div>
   </div>
 </div>

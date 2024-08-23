@@ -14,13 +14,4 @@
   <div id="chats" class="min-w-full">
     <%= render @chat %>
   </div>
-
-  <div class="ask_gpt">
-    <%= form_with(model: @chat) do |form| %>
-    <div class="mb-3">
-      <%= form.text_field :message, placeholder: "Write a question", class: "text-gray-800" %>
-      <%= form.submit "Ask" %>
-    </div>
-  <% end %>
-  </div>
 </div>
