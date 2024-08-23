@@ -12,14 +12,15 @@
   </div>
 
   <div id="chats" class="min-w-full">
-    <% @chats.each do |chat| %>
-      <%= render chat %>
-      <p>
-        <%= link_to "Show this chat", 
-                    chat, 
-                    class: "ml-2 mb-2 rounded-lg py-3 px-5 bg-blue-100 text-gray-700 inline-block font-medium" %>
-      </p>
-      <hr>
-    <% end %>
+    <%= render @chat %>
+  </div>
+
+  <div class="ask_gpt">
+    <%= form_with(model: @chat) do |form| %>
+    <div class="mb-3">
+      <%= form.text_field :message, placeholder: "Write a question", class: "text-gray-800" %>
+      <%= form.submit "Ask" %>
+    </div>
+  <% end %>
   </div>
 </div>

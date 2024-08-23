@@ -7,7 +7,9 @@ class ChatsController < ApplicationController
 
   # GET /chats or /chats.json
   def index
-    @chats = Chat.all
+    @chat = current_user.chats.any? ? current_user.chats.last : current_user.chats.build
+
+    redirect_to chat_path(@chat) if @chat.persisted?
   end
 
   # GET /chats/1 or /chats/1.json
@@ -38,6 +40,8 @@ class ChatsController < ApplicationController
         format.turbo_stream
       end
     end
+
+    redirect chats_index_path
   end
 
   # PATCH/PUT /chats/1 or /chats/1.json

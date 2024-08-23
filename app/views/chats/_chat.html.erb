@@ -1,11 +1,18 @@
-<div id="<%= dom_id chat %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">History:</strong>
-    <%= chat.history %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Q and a:</strong>
-    <%= chat.q_and_a %>
-  </p>
-</div>
+<turbo_frame id="current-chat">
+  <div id="<%= dom_id chat %>" class="min-h-75">
+    <div id="history-area" class="min-h-full">
+      <% unless chat.q_and_a.blank? %>
+        <% chat.q_and_a.each do |q, a| %>
+          <div class="question_area">
+            <div class="you">You</div>
+            <div class="question"><%= simple_format q %></div>
+          </div>
+          <div class="answer_area">
+            <div class="open_ai">OpenAI</div>
+            <div class="answer"><%= simple_format a %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>  
+</turbo_frame>
